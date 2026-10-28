@@ -16,15 +16,15 @@ public final class AnnotationProcessor {
 	private final Map<String, Boolean> checkedTargets = new HashMap<>();
 
 	public boolean shouldRemove(ClassNode classNode) {
-		return this.shouldRemove(classNode.name, classNode.visibleAnnotations);
+		return this.shouldRemove(classNode.name, classNode.invisibleAnnotations);
 	}
 
 	public boolean shouldRemove(ClassNode classNode, FieldNode fieldNode) {
-		return this.shouldRemove(classNode.name + "." + fieldNode.name + fieldNode.desc, fieldNode.visibleAnnotations);
+		return this.shouldRemove(classNode.name + "." + fieldNode.name + fieldNode.desc, fieldNode.invisibleAnnotations);
 	}
 
 	public boolean shouldRemove(ClassNode classNode, MethodNode methodNode) {
-		return this.shouldRemove(classNode.name + "." + methodNode.name + methodNode.desc, methodNode.visibleAnnotations);
+		return this.shouldRemove(classNode.name + "." + methodNode.name + methodNode.desc, methodNode.invisibleAnnotations);
 	}
 
 	private boolean shouldRemove(String target, List<AnnotationNode> annotations) {

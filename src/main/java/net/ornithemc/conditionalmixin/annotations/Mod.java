@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * specified mod(s) to be loaded. {@linkplain Conditional#modAbsent()} this mod
  * condition requires the specified mod(s) to be absent.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({})
 public @interface Mod {
 

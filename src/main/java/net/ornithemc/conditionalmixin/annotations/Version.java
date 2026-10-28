@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * in a {@linkplain Mod} the version predicates must use semver-compliant
  * version strings.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({})
 public @interface Version {
 

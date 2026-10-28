@@ -21,7 +21,7 @@ public final class ConditionalMixinTransformer {
 	public void transform(ClassNode classNode) {
 		ConditionalMixin.LOGGER.debug("Transforming mixin {}", classNode.name);
 
-		removeConditionAnnotations(classNode.visibleAnnotations);
+		removeConditionAnnotations(classNode.invisibleAnnotations);
 
 		classNode.fields.removeIf(field -> this.annotationProcessor.shouldRemove(classNode, field));
 		classNode.methods.removeIf(method -> this.annotationProcessor.shouldRemove(classNode, method));
@@ -31,11 +31,11 @@ public final class ConditionalMixinTransformer {
 	}
 
 	public void transform(FieldNode fieldNode) {
-		removeConditionAnnotations(fieldNode.visibleAnnotations);
+		removeConditionAnnotations(fieldNode.invisibleAnnotations);
 	}
 
 	public void transform(MethodNode methodNode) {
-		removeConditionAnnotations(methodNode.visibleAnnotations);
+		removeConditionAnnotations(methodNode.invisibleAnnotations);
 	}
 
 	private static void removeConditionAnnotations(List<AnnotationNode> annotations) {

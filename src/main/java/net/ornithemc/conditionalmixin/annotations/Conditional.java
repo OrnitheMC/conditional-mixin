@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  * Mixin will be discarded, regardless of the conditionals on any fields or
  * methods contained within.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
 public @interface Conditional {
 
